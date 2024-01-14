@@ -1,0 +1,43 @@
+﻿@page
+@model Timesheet.Web.Pages.Timesheets.CreateModel
+
+@{
+  ViewData["Title"] = "Create";
+  Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Pontaj</h1>
+<hr />
+
+<div class="row">
+  <div class="col-md-4">
+    <form method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <input type="hidden" asp-for="Timesheet.EmployeeId" />
+      <div class="form-group mb-2">
+        <label asp-for="Timesheet.AssignmentId" class="control-label"></label>
+        <select asp-for="Timesheet.AssignmentId" class="form-control" asp-items="ViewBag.AssignmentId"></select>
+        <span asp-validation-for="Timesheet.AssignmentId" class="text-danger"></span>
+      </div>
+      <div class="form-group mb-2">
+        <label asp-for="Timesheet.Hours" class="control-label"></label>
+        <input asp-for="Timesheet.Hours" class="form-control" />
+        <span asp-validation-for="Timesheet.Hours" class="text-danger"></span>
+      </div>
+      <div class="form-group mb-2">
+        <label asp-for="Timesheet.Date" class="control-label"></label>
+        <input type="text" class="form-control" value="@(Model.Timesheet.Date.ToString("dd/MM/yyyy"))" disabled="disabled" />
+        <input type="hidden" asp-for="Timesheet.Date" />
+      </div>
+      <div class="form-group mb-2">
+        <input type="submit" value="Adauga pontaj" class="btn btn-sm btn-primary" />
+      </div>
+    </form>
+  </div>
+</div>
+
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}

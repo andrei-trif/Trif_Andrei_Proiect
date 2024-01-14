@@ -1,0 +1,43 @@
+﻿@page
+@model Timesheet.Web.Pages.Assignments.EditModel
+
+@{
+  ViewData["Title"] = "Edit";
+  Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Repartizari</h1>
+<hr />
+
+<div class="row">
+  <div class="col-md-4">
+    <form method="post">
+      <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+      <input type="hidden" asp-for="Assignment.Id" />
+      <div class="form-group mb-2">
+        <label asp-for="Assignment.EmployeeId" class="control-label"></label>
+        <select asp-for="Assignment.EmployeeId" class="form-control" asp-items="ViewBag.EmployeeId"></select>
+        <span asp-validation-for="Assignment.EmployeeId" class="text-danger"></span>
+      </div>
+      <div class="form-group mb-2">
+        <label asp-for="Assignment.LocationId" class="control-label"></label>
+        <select asp-for="Assignment.LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>
+        <span asp-validation-for="Assignment.LocationId" class="text-danger"></span>
+      </div>
+      <div class="form-group mb-2">
+        <label asp-for="Assignment.Hours" class="control-label"></label>
+        <input asp-for="Assignment.Hours" class="form-control" />
+        <span asp-validation-for="Assignment.Hours" class="text-danger"></span>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Salveaza modificare" class="btn btn-sm btn-primary" />
+      </div>
+    </form>
+  </div>
+</div>
+
+@section Scripts {
+  @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+  }
+}

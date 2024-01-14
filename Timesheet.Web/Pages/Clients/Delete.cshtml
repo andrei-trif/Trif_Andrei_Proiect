@@ -1,0 +1,28 @@
+﻿@page
+@model Timesheet.Web.Pages.Clients.DeleteModel
+
+@{
+  ViewData["Title"] = "Delete";
+  Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Clienti</h1>
+
+<h3>Sunteti sigur ca vreti sa stergeti aceasta inregistrare?</h3>
+<div>
+  <hr />
+  <dl class="row">
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Client.Name)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Client.Name)
+    </dd>
+  </dl>
+
+  <form method="post">
+    <input type="hidden" asp-for="Client.Id" />
+    <input type="submit" value="Da" class="btn btn-sm btn-success" />
+    <a asp-page="./Index" class="btn btn-sm btn-danger">Nu</a>
+  </form>
+</div>

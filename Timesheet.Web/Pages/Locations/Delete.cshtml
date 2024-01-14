@@ -1,0 +1,76 @@
+﻿@page
+@model Timesheet.Web.Pages.Locations.DeleteModel
+
+@{
+  ViewData["Title"] = "Delete";
+  Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Locatii</h1>
+
+<h3>Sunteti sigur ca vreti sa stergeti aceasta inregistrare?</h3>
+<div>
+  <hr />
+  <dl class="row">
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.Client)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.Client.Name)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.Name)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.Name)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.StreetName)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.StreetName)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.SteetNumber)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.SteetNumber)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.SteetCode)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.SteetCode)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.Building)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.Building)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.City)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.City)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.County)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.County)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Location.Country)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Location.Country)
+    </dd>
+  </dl>
+
+  <form method="post">
+    <input type="hidden" asp-for="Location.Id" />
+    <input type="submit" value="Da" class="btn btn-sm btn-success" />
+    <a asp-page="./Index" class="btn btn-sm btn-danger">Nu</a>
+  </form>
+</div>

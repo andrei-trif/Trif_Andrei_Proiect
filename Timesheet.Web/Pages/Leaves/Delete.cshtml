@@ -1,0 +1,41 @@
+﻿@page
+@using Timesheet.Web.Utils;
+@model Timesheet.Web.Pages.Leaves.DeleteModel
+
+@{
+  ViewData["Title"] = "Delete";
+  Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Concediu</h1>
+
+<h3>Sunteti sigur ca vreti sa stergeti aceasta inregistrare?</h3>
+<div>
+  <hr />
+  <dl class="row">
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Leave.LeaveType)
+    </dt>
+    <dd class="col-sm-10">
+      @Model.Leave.LeaveType.GetDescription()
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Leave.StartDate)
+    </dt>
+    <dd class="col-sm-10">
+      @Model.Leave.StartDate.ToString("dd/MM/yyyy")
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Leave.EndDate)
+    </dt>
+    <dd class="col-sm-10">
+      @Model.Leave.EndDate.ToString("dd/MM/yyyy")
+    </dd>
+  </dl>
+
+  <form method="post">
+    <input type="hidden" asp-for="Leave.Id" />
+    <input type="submit" value="Da" class="btn btn-sm btn-success" /> 
+    <a asp-page="./Index" class="btn btn-sm btn-danger">Nu</a>
+  </form>
+</div>

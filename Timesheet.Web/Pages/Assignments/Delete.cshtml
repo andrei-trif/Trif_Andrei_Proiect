@@ -1,0 +1,40 @@
+﻿@page
+@model Timesheet.Web.Pages.Assignments.DeleteModel
+
+@{
+  ViewData["Title"] = "Delete";
+  Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<h1>Repartizari</h1>
+
+<h3>Sunteti sigur ca vreti sa stergeti aceasta inregistrare?</h3>
+<div>
+  <hr />
+  <dl class="row">
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Assignment.EmployeeId)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Assignment.Employee.FullName)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Assignment.LocationId)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Assignment.Location.FullName)
+    </dd>
+    <dt class="col-sm-2">
+      @Html.DisplayNameFor(model => model.Assignment.Hours)
+    </dt>
+    <dd class="col-sm-10">
+      @Html.DisplayFor(model => model.Assignment.Hours)
+    </dd>
+  </dl>
+
+  <form method="post">
+    <input type="hidden" asp-for="Assignment.Id" />
+    <input type="submit" value="Da" class="btn btn-sm btn-success" />
+    <a asp-page="./Index" class="btn btn-sm btn-danger">Nu</a>
+  </form>
+</div>
